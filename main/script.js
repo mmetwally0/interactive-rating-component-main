@@ -34,5 +34,9 @@ button.addEventListener("click", () => {
   document.querySelector(
     ".rating"
   ).innerHTML = `You selected ${rating} out of 5`;
-  flipCard();
+  if (rating != 0) {
+    flipCard();
+  } else {
+    alert("Please Choose a rating!")
+  }
 });
