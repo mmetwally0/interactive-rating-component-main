@@ -1,7 +1,7 @@
 // Select all the required elements from the document.
 const button = document.querySelector(".submit-btn");
 const card = document.querySelector(".card-container");
-const ratings = document.querySelectorAll(".circle");
+const ratings = document.querySelectorAll(".rate");
 
 // Declaring a variable that will store the user's rating.
 let rating = 0;
@@ -19,9 +19,9 @@ function addScore() {
 //Listen for clicks on the ratings buttons
 ratings.forEach((rating) =>
 rating.addEventListener("click", function(rating) {
+    ratings.forEach((rating) => rating.style.backgroundColor = "hsl(213, 19%, 18%)");
     this.style.backgroundColor = "hsl(217, 12%, 63%)";
     this.style.color = "white"
-    addScore();
 })
 );
 
