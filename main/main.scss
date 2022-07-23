@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap");
+
+$colors: (
+  primary-orange: hsl(25, 97%, 53%),
+  neutral-white: hsl(0, 0%, 100%),
+  neutral-light-grey: hsl(217, 12%, 63%),
+  neutral-medium-grey: hsl(216, 12%, 54%),
+  neutral-dark-blue: hsl(213, 19%, 18%),
+  neutral-very-dark-blue: hsl(216, 12%, 8%),
+  neutral-card: hsl(215, 27%, 12%),
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+$borders: 15px;
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  font-family: "Overpass", sans-serif;
+}
+
+main {
+  background-color: color(neutral-very-dark-blue);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+
+  .card-container {
+    width: 350px;
+    height: 425px;
+    background-color: color(neutral-card);
+    border-radius: $borders;
+    padding: 2em;
+    color: color(neutral-medium-grey);
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    position: relative;
+  }
+
+  .card-container.flip {
+    transform: rotateY(180deg);
+  }
+}
+
+.circle {
+  border-radius: 50%;
+  background-color: color(neutral-dark-blue);
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.card-container {
+  .rating-face {
+    margin-right: 1em;
+    .header {
+      margin-bottom: 1.5em;
+    }
+
+    .text {
+      margin-bottom: 2.5em;
+      h1 {
+        color: white;
+      }
+    }
+
+    .rating-choice {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 1.7em;
+      padding-right: 1em;
+      width: 100%;
+
+      a {
+        color: color(neutral-medium-grey);
+      }
+      a:hover {
+        color: white;
+        background-color: color(primary-orange);
+      }
+
+      a:active {
+        background-color: color(neutral-medium-grey);
+      }
+    }
+
+    .submit {
+      margin-right: 1em;
+      .submit-btn {
+        display: block;
+        text-align: center;
+        background-color: color(primary-orange);
+        padding: 1em;
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        width: 100%;
+      }
+
+      .submit-btn:hover {
+        color: color(primary-orange);
+        background-color: white;
+      }
+    }
+  }
+
+  .thanks-face {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 2em;
+
+    .img-container {
+      margin-bottom: 2em;
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 2em;
+      width: 13em;
+      margin: 0 auto;
+      background-color: color(neutral-dark-blue);
+      border-radius: 30px;
+      color: color(primary-orange);
+    }
+
+    .thanks-message {
+      h1 {
+        color: white;
+        margin-top: 1em;
+      }
+    }
+  }
+
+  .rating-face,
+  .thanks-face {
+    position: absolute;
+    backface-visibility: hidden;
+  }
+
+  .thanks-face {
+    transform: rotateY(180deg);
+  }
+}

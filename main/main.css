@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  font-family: "Overpass", sans-serif;
+}
+
+main {
+  background-color: hsl(216deg, 12%, 8%);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+main .card-container {
+  width: 350px;
+  height: 425px;
+  background-color: hsl(215deg, 27%, 12%);
+  border-radius: 15px;
+  padding: 2em;
+  color: hsl(216deg, 12%, 54%);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  position: relative;
+}
+main .card-container.flip {
+  transform: rotateY(180deg);
+}
+
+.circle {
+  border-radius: 50%;
+  background-color: hsl(213deg, 19%, 18%);
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.card-container .rating-face {
+  margin-right: 1em;
+}
+.card-container .rating-face .header {
+  margin-bottom: 1.5em;
+}
+.card-container .rating-face .text {
+  margin-bottom: 2.5em;
+}
+.card-container .rating-face .text h1 {
+  color: white;
+}
+.card-container .rating-face .rating-choice {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1.7em;
+  padding-right: 1em;
+  width: 100%;
+}
+.card-container .rating-face .rating-choice a {
+  color: hsl(216deg, 12%, 54%);
+}
+.card-container .rating-face .rating-choice a:hover {
+  color: white;
+  background-color: hsl(25deg, 97%, 53%);
+}
+.card-container .rating-face .rating-choice a:active {
+  background-color: hsl(216deg, 12%, 54%);
+}
+.card-container .rating-face .submit {
+  margin-right: 1em;
+}
+.card-container .rating-face .submit .submit-btn {
+  display: block;
+  text-align: center;
+  background-color: hsl(25deg, 97%, 53%);
+  padding: 1em;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  width: 100%;
+}
+.card-container .rating-face .submit .submit-btn:hover {
+  color: hsl(25deg, 97%, 53%);
+  background-color: white;
+}
+.card-container .thanks-face {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 2em;
+}
+.card-container .thanks-face .img-container {
+  margin-bottom: 2em;
+}
+.card-container .thanks-face .rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2em;
+  width: 13em;
+  margin: 0 auto;
+  background-color: hsl(213deg, 19%, 18%);
+  border-radius: 30px;
+  color: hsl(25deg, 97%, 53%);
+}
+.card-container .thanks-face .thanks-message h1 {
+  color: white;
+  margin-top: 1em;
+}
+.card-container .rating-face,
+.card-container .thanks-face {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.card-container .thanks-face {
+  transform: rotateY(180deg);
+}/*# sourceMappingURL=main.css.map */
